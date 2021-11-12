@@ -1,0 +1,127 @@
+:root {
+    --prymary-color: #fd951f;
+    --bg-color: #130f0d;
+    --text-color: #f0f0f5;
+    --light-color: rgba(255, 255, 255, 0.04);
+    --form-background: rgba(255, 255, 255, 0.03);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    height: 100%;
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+    /* tamanho da tela */
+    height: 100vh;
+    /* diplay */
+    display: flex;
+    flex-direction: column;
+    /* cores */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+form {
+    background: var(--form-background);
+    /* Tamanho do formulario */
+    width: 100%;
+    max-width: 50rem;
+    /* Espaçamento externo e interno */
+    margin: 3.2rem auto;
+    padding: 3.2rem 6.4rem;
+    /* Display */
+    display: flex;
+    flex-direction: column;
+}
+
+form h2 {
+    margin-bottom: 3.2rem;
+}
+
+div.input {
+    margin-bottom: 2.4rem;
+    position: relative;
+}
+
+
+/* Ajustando as caixas de preenchimento dos itens do form */
+
+input,
+button {
+    /* Resetando a aparecencia dos itens */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    /* Ajustando a caixa */
+    width: 100%;
+    padding: 1.6rem 0;
+    border: none;
+    border-bottom: 1px solid var(--prymary-color);
+    background-color: transparent;
+    outline: none;
+    /* Ajustando texto */
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+
+button {
+    margin-top: 1.6rem;
+    background-color: var(--prymary-color);
+}
+
+
+/* ~ esse simbolo é para procurar o irmão do input */
+
+
+/* 
+ajustando o label para cima da linha do input
+a position absolute está sendo absoluta ao input por conta que o input está com a position relative
+sem ele a position seria da pagina toda
+*/
+
+input~label {
+    /* ajustando posição  */
+    position: absolute;
+    top: 1.6rem;
+    left: 0;
+    /* cores */
+    color: rgba(255, 255, 255, 0.6);
+    /* transição */
+    transition: .4s;
+}
+
+input:focus~label,
+
+/* se for valido a informação digitada, o label não vai descer e sobrepor a informação */
+
+input:valid~label {
+    /* mudando a posição no eixo Y (fazendo subir) */
+    transform: translateY(-2.4rem);
+    /* faz diminuindo a font */
+    font-size: 0.8em;
+    /* adicionando espaçamento entre as letras */
+    letter-spacing: 0.1em;
+}
+
+
+/* AÇAO DE ERRO */
+
+.input span.error {
+    display: flex;
+    padding: 0;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.input span.error.active {
+    border: 1px solid red;
+    padding: 0.4em;
+}
